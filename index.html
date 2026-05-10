@@ -2,245 +2,175 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iwin | Authentic Indian Rap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iwin | Official</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0a0a0a;
-            --card-bg: #161616;
-            --accent-grey: #2a2a2a;
-            --text-main: #ffffff;
-            --text-dim: #a0a0a0;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --black: #000000;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            background-color: var(--black);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, sans-serif;
             overflow-x: hidden;
+            line-height: 1.5;
         }
 
-        /* --- Layout --- */
-        .container {
-            max-width: 1100px;
+        .wrapper {
+            max-width: 580px; /* Linktree-style narrow width for focus */
             margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 100px 0;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
-        }
-
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 60px 20px;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
         }
 
-        .hero h1 {
+        /* Hero Section */
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(5rem, 15vw, 10rem);
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 1rem;
-            text-transform: lowercase;
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            font-style: italic;
         }
 
-        .hero p {
-            font-size: 1.1rem;
-            letter-spacing: 4px;
+        .header p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--text-dim);
+            font-weight: 400;
+        }
+
+        /* Bio Section */
+        .bio {
+            font-size: 0.95rem;
+            color: #ccc;
             font-weight: 300;
+            margin-bottom: 60px;
+            line-height: 1.8;
+            padding: 0 10px;
         }
 
-        /* --- About Section --- */
-        .about-card {
-            background: var(--card-bg);
-            padding: 4rem;
-            border-radius: 32px;
-            border: 1px solid var(--accent-grey);
-            text-align: center;
+        /* Music Section */
+        .section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
         }
 
-        .about-card h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-card p {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* --- Music Section --- */
-        .music-section h2 {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
+        .video-wrapper {
+            width: 100%;
+            border-radius: 16px;
             overflow: hidden;
-            border-radius: 24px;
-            background: var(--card-bg);
-            border: 1px solid var(--accent-grey);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid var(--border);
+            margin-bottom: 40px;
+            background: #080808;
+            aspect-ratio: 16/9;
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .video-wrapper iframe {
             width: 100%;
             height: 100%;
-            border: 0;
+            border: none;
         }
 
-        /* --- Buttons & Links --- */
-        .cta-group {
+        /* Linktree Style Buttons */
+        .link-container {
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 50px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        .btn {
-            padding: 18px 36px;
-            border-radius: 50px;
+        .link-item {
+            display: block;
+            background: var(--glass);
+            border: 1px solid var(--border);
+            color: var(--text-primary);
             text-decoration: none;
+            padding: 20px;
+            border-radius: 12px;
             font-weight: 600;
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
         }
 
-        .btn-primary {
-            background: var(--text-main);
-            color: var(--bg-color);
+        .link-item:active {
+            transform: scale(0.98);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--accent-grey);
+        .link-item.primary {
+            background: #ffffff;
+            color: #000000;
+            border: none;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255,255,255,0.1);
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent-grey);
-        }
-
-        /* --- Footer --- */
+        /* Footer */
         footer {
-            padding: 50px 0;
-            text-align: center;
-            color: var(--text-dim);
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            margin-top: 80px;
+            color: #333;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        /* --- Mobile Tweaks --- */
-        @media (max-width: 768px) {
-            .about-card { padding: 2rem; }
-            section { padding: 60px 0; }
+        /* Smooth Reveal Animation */
+        .reveal {
+            animation: fadeIn 1.2s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <section class="hero visible">
-        <div class="container">
+    <div class="wrapper reveal">
+        <header class="header">
             <h1>iwin</h1>
-            <p>Authentic Indian Rap • Dark Vibes • Real Stories</p>
-        </div>
-    </section>
+            <p>Authentic • Dark • Real</p>
+        </header>
 
-    <section id="about" class="container">
-        <div class="about-card">
-            <h2>The Narrative</h2>
-            <p>
-                An emerging Indian artist defining a new era of sound. iwin blends emotional storytelling with dark melodic textures, 
-                crafting a raw, cinematic experience inspired by the grit and depth of global hip-hop culture.
-            </p>
-        </div>
-    </section>
+        <p class="bio">
+            Blending dark melodic sounds with raw Indian storytelling. 
+            Defining a new era of authentic hip-hop.
+        </p>
 
-    <section id="music" class="container music-section">
-        <h2>Latest Releases</h2>
-        <div class="video-container">
-            <iframe 
-                src="https://www.youtube.com/embed/videoseries?list=PLLQs99HA6XgjPioO_nTq-6x6bK4RY1r6y" 
-                title="iwin YouTube Playlist" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
+        <h3 class="section-title">Latest Release</h3>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/videoseries?list=PLLQs99HA6XgjPioO_nTq-6x6bK4RY1r6y" allowfullscreen></iframe>
         </div>
 
-        <div class="cta-group">
-            <a href="https://www.youtube.com/@musicbyiwin/featured" target="_blank" class="btn btn-primary">YouTube Channel</a>
-            <a href="mailto:iwinthanikal@gmail.com" class="btn btn-secondary">Get In Touch</a>
+        <div class="link-container">
+            <a href="https://www.youtube.com/@musicbyiwin/featured" target="_blank" class="link-item primary">Listen on YouTube</a>
+            <a href="mailto:iwinthanikal@gmail.com" class="link-item">Work with iwin</a>
+            <a href="#" class="link-item">SoundCloud</a>
         </div>
-    </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 IWIN. ALL RIGHTS RESERVED.</p>
-        </div>
-    </footer>
+        <footer>
+            &copy; 2026 IWIN ENTERPRISES
+        </footer>
+    </div>
 
-    <script>
-        // Simple Scroll Reveal Logic
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
 </html>
